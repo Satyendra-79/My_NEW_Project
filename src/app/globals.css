@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-uthmani: "UthmanicHafs", "Amiri", serif;
+  --font-indopak: "IndoPak", "Noori Nastaliq", serif;
+  --font-inter: "Inter", system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    @apply antialiased scroll-smooth;
+  }
+
+  body {
+    @apply bg-neutral-50 text-neutral-900 dark:bg-dark-bg dark:text-dark-text;
+  }
+
+  /* Arabic text optimization */
+  [lang="ar"],
+  [dir="rtl"] {
+    @apply text-right;
+    font-feature-settings:
+      "liga" 1,
+      "calt" 1;
+  }
+
+  /* Selection styling */
+  ::selection {
+    @apply bg-primary-200 text-primary-900;
+  }
+
+  .dark ::selection {
+    @apply bg-primary-700 text-primary-100;
+  }
+}
+
+@layer components {
+  /* Container */
+  .container-quran {
+    @apply container mx-auto max-w-4xl px-4;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply bg-primary-500 hover:bg-primary-600 text-white focus:ring-primary-500;
+  }
+
+  .btn-secondary {
+    @apply bg-neutral-200 hover:bg-neutral-300 dark:bg-dark-border dark:hover:bg-neutral-700 text-neutral-900 dark:text-dark-text focus:ring-neutral-500;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent hover:bg-neutral-100 dark:hover:bg-dark-border text-neutral-700 dark:text-neutral-300;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white dark:bg-dark-surface rounded-xl border border-neutral-200 dark:border-dark-border shadow-sm;
+  }
+
+  /* Verse Container */
+  .verse-container {
+    @apply relative p-6 mb-4 bg-gradient-to-br from-white to-neutral-50 dark:from-dark-surface dark:to-dark-bg rounded-2xl border-l-4 border-primary-500 hover:shadow-xl transition-shadow duration-300;
+  }
+
+  /* Arabic Text */
+  .arabic-text {
+    @apply font-arabic-uthmani leading-quran text-neutral-900 dark:text-dark-text selection:bg-accent-200;
+  }
+
+  /* Navigation Link */
+  .nav-link {
+    @apply text-neutral-700 hover:text-primary-500 dark:text-neutral-300 dark:hover:text-primary-400 transition-colors duration-200 font-medium;
+  }
+
+  /* Icon Button */
+  .icon-button {
+    @apply w-10 h-10 flex items-center justify-center rounded-lg hover:bg-neutral-100 dark:hover:bg-dark-border transition-colors duration-200;
+  }
+
+  /* Screen Reader Only */
+  .sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden clip-[rect(0,0,0,0)] whitespace-nowrap border-0;
+  }
+}
+
+@layer utilities {
+  /* Scrollbar Styling */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-neutral-100 dark:bg-dark-bg;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-neutral-400 dark:bg-neutral-600 rounded-full;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    @apply bg-neutral-500 dark:bg-neutral-500;
+  }
+
+  /* RTL utilities */
+  .rtl\:text-right[dir="rtl"] {
+    text-align: right;
+  }
+
+  .rtl\:border-r[dir="rtl"] {
+    border-right-width: 4px;
+    border-left-width: 0;
+  }
+
+  /* Focus visible */
+  .focus-visible-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2;
+  }
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Print styles */
+@media print {
+  body {
+    @apply text-black bg-white;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .verse-container {
+    @apply break-inside-avoid;
+  }
+}

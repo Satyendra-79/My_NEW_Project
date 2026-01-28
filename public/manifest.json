@@ -1,0 +1,51 @@
+{
+  "name": "Al-Quran Al-Kareem",
+  "short_name": "Quran",
+  "description": "A comprehensive Quranic web application with authentic Sunni translations, Tafsir, and Islamic tools",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0D7C66",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "books", "lifestyle"],
+  "lang": "en",
+  "dir": "auto",
+  "scope": "/",
+  "shortcuts": [
+    {
+      "name": "Read Quran",
+      "short_name": "Read",
+      "description": "Start reading the Quran",
+      "url": "/surahs",
+      "icons": [{ "src": "/icon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Search",
+      "short_name": "Search",
+      "description": "Search Quran verses",
+      "url": "/search",
+      "icons": [{ "src": "/icon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Prayer Times",
+      "short_name": "Prayer",
+      "description": "View prayer times",
+      "url": "/tools/prayer-times",
+      "icons": [{ "src": "/icon-192x192.png", "sizes": "192x192" }]
+    }
+  ]
+}
