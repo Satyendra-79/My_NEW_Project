@@ -7,8 +7,7 @@ const nextConfig = {
 
   // Experimental features
   experimental: {
-    // Partial Pre-rendering
-    ppr: true,
+
     // Server Actions
     serverActions: {
       bodySizeLimit: "2mb",
@@ -36,7 +35,6 @@ const nextConfig = {
   i18n: {
     locales: ["en", "ar", "ur", "fr", "tr", "id", "bn"],
     defaultLocale: "en",
-    localeDetection: true,
   },
 
   // Headers for security

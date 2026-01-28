@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
-import localFont from "next/font/local";
 import "./globals.css";
 import { Providers } from "./providers";
 
@@ -8,34 +7,6 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
-});
-
-// Uthmani font for Quranic text
-const uthmaniFont = localFont({
-  src: [
-    {
-      path: "../fonts/UthmanicHafs-Regular.woff2",
-      weight: "400",
-      style: "normal",
-    },
-  ],
-  variable: "--font-uthmani",
-  display: "swap",
-  preload: true,
-});
-
-// Indo-Pak font for Quranic text
-const indopakFont = localFont({
-  src: [
-    {
-      path: "../fonts/IndoPak-Regular.woff2",
-      weight: "400",
-      style: "normal",
-    },
-  ],
-  variable: "--font-indopak",
-  display: "swap",
-  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -133,9 +104,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${inter.variable} ${uthmaniFont.variable} ${indopakFont.variable} font-sans`}
-      >
+      <body className={`${inter.variable} font-sans`}>
         <Providers>{children}</Providers>
       </body>
     </html>
